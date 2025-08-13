@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import QueryProvider from "@/components/providers/QueryProvider";
-import PWAProvider from "@/components/providers/PWAProvider";
+// import PWAProvider from "@/components/providers/PWAProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,13 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Weekly Work Hours and Attendance Tracker",
-  description: "주간 근무시간 및 출석 관리 앱",
-  manifest: "/manifest.json",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Work Tracker"
-  }
+  description: "주간 근무시간 및 출석 관리 앱"
 };
 
 export const viewport: Viewport = {
@@ -44,11 +38,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PWAProvider>
-          <QueryProvider>
-            {children}
-          </QueryProvider>
-        </PWAProvider>
+        <QueryProvider>
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );
