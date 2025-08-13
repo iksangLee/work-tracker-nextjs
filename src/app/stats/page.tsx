@@ -1,3 +1,5 @@
+'use client';
+
 import AppLayout from '@/components/layout/AppLayout';
 import StatsPage from '@/components/pages/StatsPage';
 
