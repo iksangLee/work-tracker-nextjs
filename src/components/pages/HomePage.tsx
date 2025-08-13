@@ -97,7 +97,7 @@ export default function HomePage() {
                     </span>
                   </BlurCard>
                 )}
-                {todayRecord.totalHours && (
+                {todayRecord.totalHours !== undefined && todayRecord.totalHours > 0 && (
                   <BlurCard className="px-3 sm:px-4 py-3 bg-emerald-400/20 border-emerald-400/30 min-h-[48px] flex items-center justify-center glow-emerald">
                     <span className="text-emerald-400 font-semibold text-sm sm:text-base">
                       총 근무시간: {todayRecord.totalHours.toFixed(1)}시간
@@ -111,7 +111,7 @@ export default function HomePage() {
       </div>
 
       {/* Action Button */}
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 pb-4">
+      <div className="px-4 sm:px-6 pt-6 sm:pt-8 pb-8 flex justify-center">
         {currentStatus === 'out' ? (
           <GradientButton 
             variant="clockIn" 
