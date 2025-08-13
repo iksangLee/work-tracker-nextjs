@@ -17,6 +17,15 @@ export default function HomePage() {
     });
   };
 
+  const getCurrentDate = () => {
+    return new Date().toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long'
+    });
+  };
+
   const getStatusText = () => {
     if (currentStatus === 'in') {
       return '근무 중';
@@ -48,11 +57,18 @@ export default function HomePage() {
       <InstallPrompt />
       {/* Header */}
       <header className="pt-12 sm:pt-16 pb-4 sm:pb-6 px-4 sm:px-6 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-white text-shadow-strong mb-2">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white text-shadow-ultra mb-2">
           출퇴근 기록
         </h1>
         <div 
-          className="text-lg sm:text-xl text-white/90 text-shadow"
+          className="text-base sm:text-lg text-white text-shadow-strong mb-1"
+          role="text"
+          aria-label="현재 날짜"
+        >
+          {getCurrentDate()}
+        </div>
+        <div 
+          className="text-lg sm:text-xl text-white text-shadow-strong"
           role="timer"
           aria-live="off"
           aria-label="현재 시간"
@@ -72,7 +88,7 @@ export default function HomePage() {
               aria-label={`상태 표시: ${getStatusText()}`}
             />
             <div 
-              className="text-xl sm:text-2xl font-bold text-white text-shadow-strong mb-4 sm:mb-5"
+              className="text-xl sm:text-2xl font-bold text-white text-shadow-ultra mb-4 sm:mb-5"
               role="status"
               aria-live="polite"
             >
@@ -83,23 +99,23 @@ export default function HomePage() {
               <div className="space-y-3">
                 {todayRecord.clockIn && (
                   <BlurCard intensity="light" className="flex justify-between items-center px-3 sm:px-4 py-3 min-h-[48px]">
-                    <span className="text-white/80 font-medium text-sm sm:text-base">출근</span>
-                    <span className="text-white font-semibold text-base sm:text-lg">
+                    <span className="text-white font-medium text-sm sm:text-base text-shadow-strong">출근</span>
+                    <span className="text-white font-semibold text-base sm:text-lg text-shadow-strong">
                       {todayRecord.clockIn}
                     </span>
                   </BlurCard>
                 )}
                 {todayRecord.clockOut && (
                   <BlurCard intensity="light" className="flex justify-between items-center px-3 sm:px-4 py-3 min-h-[48px]">
-                    <span className="text-white/80 font-medium text-sm sm:text-base">퇴근</span>
-                    <span className="text-white font-semibold text-base sm:text-lg">
+                    <span className="text-white font-medium text-sm sm:text-base text-shadow-strong">퇴근</span>
+                    <span className="text-white font-semibold text-base sm:text-lg text-shadow-strong">
                       {todayRecord.clockOut}
                     </span>
                   </BlurCard>
                 )}
                 {todayRecord.totalHours !== undefined && todayRecord.totalHours > 0 && (
                   <BlurCard className="px-3 sm:px-4 py-3 bg-emerald-400/20 border-emerald-400/30 min-h-[48px] flex items-center justify-center glow-emerald">
-                    <span className="text-emerald-400 font-semibold text-sm sm:text-base">
+                    <span className="text-emerald-400 font-semibold text-sm sm:text-base text-shadow-strong">
                       총 근무시간: {todayRecord.totalHours.toFixed(1)}시간
                     </span>
                   </BlurCard>

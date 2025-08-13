@@ -35,7 +35,7 @@ export default function StatsPage() {
     <div className="w-full">
       {/* Header */}
       <div className="pt-12 sm:pt-16 pb-4 sm:pb-6 px-4 sm:px-6 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-white text-shadow-strong mb-3 sm:mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white text-shadow-ultra mb-3 sm:mb-4">
           주간 통계
         </h1>
         <div className="flex items-center justify-center gap-2 sm:gap-4">
@@ -48,7 +48,7 @@ export default function StatsPage() {
             <ChevronLeft color="#FFFFFF" size={24} aria-hidden="true" />
           </button>
           <div 
-            className="text-sm sm:text-lg text-white/80 text-shadow text-center px-2"
+            className="text-sm sm:text-lg text-white text-shadow-strong text-center px-2"
             role="status"
             aria-live="polite"
           >
@@ -77,8 +77,8 @@ export default function StatsPage() {
             <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 rounded-full glass-effect flex items-center justify-center shadow-lg">
               <Clock color="#007AFF" size={20} />
             </div>
-            <div className="text-white/80 text-xs sm:text-sm font-medium mb-1 sm:mb-2">총 근무시간</div>
-            <div className="text-white text-lg sm:text-2xl font-bold text-shadow">
+            <div className="text-white text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-shadow-strong">총 근무시간</div>
+            <div className="text-white text-lg sm:text-2xl font-bold text-shadow-ultra">
               {stats.weeklyHours.toFixed(1)}시간
             </div>
           </BlurCard>
@@ -87,8 +87,8 @@ export default function StatsPage() {
             <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-2 sm:mb-3 rounded-full glass-effect flex items-center justify-center shadow-lg">
               <TrendingUp color="#34D399" size={20} />
             </div>
-            <div className="text-white/80 text-xs sm:text-sm font-medium mb-1 sm:mb-2">일평균 근무시간</div>
-            <div className="text-white text-lg sm:text-2xl font-bold text-shadow">
+            <div className="text-white text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-shadow-strong">일평균 근무시간</div>
+            <div className="text-white text-lg sm:text-2xl font-bold text-shadow-ultra">
               {averageDaily.toFixed(1)}시간
             </div>
           </BlurCard>
@@ -100,7 +100,7 @@ export default function StatsPage() {
         <BlurCard className="p-4 sm:p-6">
           <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
             <Calendar color="rgba(255, 255, 255, 0.8)" size={18} />
-            <h2 className="text-lg sm:text-xl font-semibold text-white text-shadow">일별 근무시간</h2>
+            <h2 className="text-lg sm:text-xl font-semibold text-white text-shadow-ultra">일별 근무시간</h2>
           </div>
           
           <div className="space-y-2 sm:space-y-3">
@@ -121,21 +121,21 @@ export default function StatsPage() {
                 >
                   <div className="flex justify-between items-center">
                     <div>
-                      <div className={`font-semibold text-sm sm:text-base ${isToday ? 'text-blue-400' : 'text-white'}`}>
+                      <div className={`font-semibold text-sm sm:text-base text-shadow-strong ${isToday ? 'text-blue-400' : 'text-white'}`}>
                         {getDayName(dateString)}
                       </div>
-                      <div className={`text-xs sm:text-sm ${isToday ? 'text-blue-300' : 'text-white/70'}`}>
+                      <div className={`text-xs sm:text-sm text-shadow ${isToday ? 'text-blue-300' : 'text-white'}`}>
                         {formatDate(dateString)}
                       </div>
                     </div>
                     
                     <div className="text-right">
                       {record?.clockIn && (
-                        <div className="text-xs text-white/60 mb-1">
+                        <div className="text-xs text-white mb-1 text-shadow">
                           {record.clockIn} - {record.clockOut || '진행중'}
                         </div>
                       )}
-                      <div className={`font-semibold text-sm sm:text-base ${hours > 0 ? 'text-emerald-400' : 'text-white/70'}`}>
+                      <div className={`font-semibold text-sm sm:text-base text-shadow-strong ${hours > 0 ? 'text-emerald-400' : 'text-white'}`}>
                         {hours > 0 ? `${hours.toFixed(1)}시간` : '기록 없음'}
                       </div>
                     </div>
@@ -150,7 +150,7 @@ export default function StatsPage() {
       {/* Weekly Chart */}
       <div className="px-4 sm:px-6 mb-20 sm:mb-24">
         <BlurCard className="p-4 sm:p-6">
-          <h2 className="text-lg sm:text-xl font-semibold text-white text-shadow mb-4 sm:mb-6">주간 근무 패턴</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-white text-shadow-ultra mb-4 sm:mb-6">주간 근무 패턴</h2>
           <div className="flex items-end justify-between h-32 sm:h-36 gap-1 sm:gap-2">
             {Array.from({ length: 7 }, (_, index) => {
               const date = new Date(stats.currentWeekStart);
@@ -170,7 +170,7 @@ export default function StatsPage() {
                     }`}
                     style={{ height: `${height}px` }}
                   />
-                  <div className="text-xs text-white/80 font-medium text-center">
+                  <div className="text-xs text-white font-medium text-center text-shadow-strong">
                     {getDayName(dateString)}
                   </div>
                 </div>

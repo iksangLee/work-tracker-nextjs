@@ -69,9 +69,9 @@ export default function TabNavigation() {
                   aria-hidden="true"
                 />
                 <span 
-                  className="text-[11px] font-semibold mt-1"
+                  className="text-[11px] font-semibold mt-1 text-shadow"
                   style={{ 
-                    color: isActive ? tab.color : 'rgba(60, 60, 67, 0.6)',
+                    color: isActive ? tab.color : 'rgba(60, 60, 67, 0.8)',
                     fontWeight: '600'
                   }}
                 >

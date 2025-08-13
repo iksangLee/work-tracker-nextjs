@@ -73,10 +73,10 @@ export default function InstallPrompt() {
           </div>
           
           <div className="flex-1 min-w-0">
-            <h3 className="text-white font-semibold text-sm mb-1">
+            <h3 className="text-white font-semibold text-sm mb-1 text-shadow-strong">
               {isIOS ? '홈 화면에 추가' : '앱 설치하기'}
             </h3>
-            <p className="text-white/80 text-xs leading-relaxed mb-3">
+            <p className="text-white text-xs leading-relaxed mb-3 text-shadow">
               {isIOS 
                 ? 'Safari 하단의 공유 버튼 → "홈 화면에 추가"를 선택하세요' 
                 : '홈 화면에 추가하여 더 빠르고 편리하게 사용하세요'

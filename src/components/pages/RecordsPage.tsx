@@ -88,14 +88,14 @@ export default function RecordsPage() {
     <div className="w-full">
       {/* Header */}
       <div className="pt-12 sm:pt-16 pb-4 sm:pb-6 px-4 sm:px-6 text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-white text-shadow-strong mb-3 sm:mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white text-shadow-ultra mb-3 sm:mb-4">
           근무 기록
         </h1>
         <div className="flex items-center justify-center gap-2 sm:gap-4">
           <button onClick={goToPreviousWeek} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center">
             <ChevronLeft color="#FFFFFF" size={24} />
           </button>
-          <div className="text-sm sm:text-lg text-white/80 text-shadow text-center px-2">
+          <div className="text-sm sm:text-lg text-white text-shadow-strong text-center px-2">
             {weekOffset === 0 ? '이번 주' : `${weekOffset > 0 ? `${weekOffset}주 후` : `${Math.abs(weekOffset)}주 전`}`}
           </div>
           <button onClick={goToNextWeek} className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center">
@@ -108,8 +108,8 @@ export default function RecordsPage() {
       <div className="px-4 sm:px-6 pb-20 sm:pb-24">
         {sortedRecords.length === 0 ? (
           <div className="text-center py-12 sm:py-16" role="status" aria-live="polite">
-            <div className="text-lg sm:text-xl text-white/90 font-semibold mb-2">아직 기록이 없습니다</div>
-            <div className="text-base sm:text-lg text-white/70">홈 화면에서 출퇴근을 기록해보세요</div>
+            <div className="text-lg sm:text-xl text-white font-semibold mb-2 text-shadow-strong">아직 기록이 없습니다</div>
+            <div className="text-base sm:text-lg text-white text-shadow-strong">홈 화면에서 출퇴근을 기록해보세요</div>
           </div>
         ) : (
           <div className="space-y-3 sm:space-y-4" role="list" aria-label="근무 기록 목록">
@@ -117,10 +117,10 @@ export default function RecordsPage() {
               <BlurCard key={record.id} intensity="strong" className="p-4 sm:p-5" role="listitem">
                 <div className="flex justify-between items-start mb-3 sm:mb-4">
                   <div>
-                    <div className="text-xl sm:text-2xl font-bold text-white text-shadow-strong">
+                    <div className="text-xl sm:text-2xl font-bold text-white text-shadow-ultra">
                       {formatDate(record.date)}
                     </div>
-                    <div className="text-base sm:text-lg text-white/90 font-medium text-shadow">
+                    <div className="text-base sm:text-lg text-white font-medium text-shadow-strong">
                       {getDayName(record.date)}
                     </div>
                   </div>
@@ -146,15 +146,15 @@ export default function RecordsPage() {
 
                 <div className="space-y-2 sm:space-y-3">
                   <BlurCard intensity="light" className="flex justify-between items-center px-3 sm:px-4 py-3 min-h-[48px]">
-                    <span className="text-white/95 font-semibold text-sm sm:text-base">출근</span>
-                    <span className="text-white font-bold text-base sm:text-lg">
+                    <span className="text-white font-semibold text-sm sm:text-base text-shadow-strong">출근</span>
+                    <span className="text-white font-bold text-base sm:text-lg text-shadow-strong">
                       {record.clockIn || '기록 없음'}
                     </span>
                   </BlurCard>
                   
                   <BlurCard intensity="light" className="flex justify-between items-center px-3 sm:px-4 py-3 min-h-[48px]">
-                    <span className="text-white/95 font-semibold text-sm sm:text-base">퇴근</span>
-                    <span className="text-white font-bold text-base sm:text-lg">
+                    <span className="text-white font-semibold text-sm sm:text-base text-shadow-strong">퇴근</span>
+                    <span className="text-white font-bold text-base sm:text-lg text-shadow-strong">
                       {record.clockOut || '기록 없음'}
                     </span>
                   </BlurCard>
@@ -162,8 +162,8 @@ export default function RecordsPage() {
                   {record.totalHours && (
                     <BlurCard className="px-3 sm:px-4 py-3 bg-emerald-400/20 border-emerald-400/30 min-h-[48px] glow-emerald">
                       <div className="flex justify-between items-center">
-                        <span className="text-white font-semibold text-sm sm:text-base">총 근무시간</span>
-                        <span className="text-white font-bold text-base sm:text-lg">
+                        <span className="text-white font-semibold text-sm sm:text-base text-shadow-strong">총 근무시간</span>
+                        <span className="text-white font-bold text-base sm:text-lg text-shadow-strong">
                           {record.totalHours.toFixed(1)}시간
                         </span>
                       </div>
@@ -188,7 +188,7 @@ export default function RecordsPage() {
             <div className="flex justify-between items-center mb-4 sm:mb-6">
               <h2 
                 id="modal-title"
-                className="text-xl sm:text-2xl font-semibold text-white text-shadow"
+                className="text-xl sm:text-2xl font-semibold text-white text-shadow-ultra"
               >
                 기록 수정
               </h2>
@@ -206,7 +206,7 @@ export default function RecordsPage() {
               <div>
                 <label 
                   htmlFor="clockin-input"
-                  className="block text-base sm:text-lg font-medium text-white/90 mb-2"
+                  className="block text-base sm:text-lg font-medium text-white mb-2 text-shadow-strong"
                 >
                   출근 시간
                 </label>
@@ -227,7 +227,7 @@ export default function RecordsPage() {
               <div>
                 <label 
                   htmlFor="clockout-input"
-                  className="block text-base sm:text-lg font-medium text-white/90 mb-2"
+                  className="block text-base sm:text-lg font-medium text-white mb-2 text-shadow-strong"
                 >
                   퇴근 시간
                 </label>
