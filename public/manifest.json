@@ -1,0 +1,87 @@
+{
+  "name": "Weekly Work Hours and Attendance Tracker",
+  "short_name": "Work Tracker",
+  "description": "주간 근무시간 및 출석 관리 앱",
+  "theme_color": "#007AFF",
+  "background_color": "#1a1a2e",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "categories": ["productivity", "business", "utilities"],
+  "lang": "ko",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "출근하기",
+      "short_name": "출근",
+      "description": "빠른 출근 기록",
+      "url": "/?action=clockin",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "퇴근하기", 
+      "short_name": "퇴근",
+      "description": "빠른 퇴근 기록",
+      "url": "/?action=clockout",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "통계 보기",
+      "short_name": "통계",
+      "description": "주간 근무 통계 확인",
+      "url": "/stats",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
