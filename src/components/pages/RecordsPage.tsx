@@ -8,7 +8,7 @@ import BlurCard from '@/components/ui/BlurCard';
 import GradientButton from '@/components/ui/GradientButton';
 
 export default function RecordsPage() {
-  const { records, updateRecord, deleteRecord, isLoading, getWeeklyRecords, weekOffset, goToPreviousWeek, goToNextWeek } = useWorkRecord();
+  const { updateRecord, deleteRecord, isLoading, getWeeklyRecords, weekOffset, goToPreviousWeek, goToNextWeek } = useWorkRecord();
   const [editingRecord, setEditingRecord] = useState<WorkRecord | null>(null);
   const [editForm, setEditForm] = useState({ clockIn: '', clockOut: '' });
 

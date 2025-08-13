@@ -4,17 +4,25 @@ interface BlurCardProps {
   children: ReactNode;
   className?: string;
   intensity?: 'light' | 'strong';
+  role?: string;
+  'aria-label'?: string;
 }
 
 export default function BlurCard({ 
   children, 
   className = '', 
-  intensity = 'light' 
+  intensity = 'light',
+  role,
+  'aria-label': ariaLabel
 }: BlurCardProps) {
   const glassClass = intensity === 'strong' ? 'glass-effect-strong' : 'glass-effect';
   
   return (
-    <div className={`${glassClass} rounded-[20px] shadow-lg ${className}`}>
+    <div 
+      className={`${glassClass} rounded-[20px] shadow-lg ${className}`}
+      role={role}
+      aria-label={ariaLabel}
+    >
       {children}
     </div>
   );

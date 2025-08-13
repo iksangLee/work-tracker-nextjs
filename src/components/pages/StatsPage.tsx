@@ -52,7 +52,11 @@ export default function StatsPage() {
             role="status"
             aria-live="polite"
           >
-            {stats.currentWeekStart} - {formatDate(new Date(new Date(stats.currentWeekStart).setDate(new Date(stats.currentWeekStart).getDate() + 6)))}
+            {stats.currentWeekStart} - {(() => {
+              const endDate = new Date(stats.currentWeekStart);
+              endDate.setDate(endDate.getDate() + 6);
+              return formatDate(endDate.toISOString().split('T')[0]);
+            })()}
             {weekOffset === 0 ? ' (이번 주)' : ''}
           </div>
           <button 

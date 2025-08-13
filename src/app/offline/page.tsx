@@ -1,3 +1,5 @@
+'use client';
+
 import AppLayout from '@/components/layout/AppLayout';
 import { Wifi, WifiOff } from 'lucide-react';
 import BlurCard from '@/components/ui/BlurCard';

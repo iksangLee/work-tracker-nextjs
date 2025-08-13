@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Download, X } from 'lucide-react';
-import BlurCard from './BlurCard';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;

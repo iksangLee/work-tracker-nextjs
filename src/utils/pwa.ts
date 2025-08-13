@@ -2,7 +2,7 @@ export function isStandalone(): boolean {
   if (typeof window === 'undefined') return false;
   
   return window.matchMedia('(display-mode: standalone)').matches ||
-         (window.navigator as any).standalone === true ||
+         (window.navigator as { standalone?: boolean }).standalone === true ||
          document.referrer.includes('android-app://');
 }
 
@@ -58,10 +58,17 @@ export function isOnline(): boolean {
   return navigator.onLine;
 }
 
+interface QueueAction {
+  type: string;
+  data: unknown;
+  timestamp: number;
+  id: string;
+}
+
 // 오프라인 데이터 동기화를 위한 큐 관리
 export class OfflineQueue {
   private static instance: OfflineQueue;
-  private queue: any[] = [];
+  private queue: QueueAction[] = [];
   private isProcessing = false;
 
   static getInstance(): OfflineQueue {
@@ -71,7 +78,7 @@ export class OfflineQueue {
     return OfflineQueue.instance;
   }
 
-  add(action: any): void {
+  add(action: Omit<QueueAction, 'timestamp' | 'id'>): void {
     this.queue.push({
       ...action,
       timestamp: Date.now(),
@@ -106,6 +113,8 @@ export class OfflineQueue {
     
     while (this.queue.length > 0 && isOnline()) {
       const action = this.queue.shift();
+      if (!action) break;
+      
       try {
         // 여기서 실제 동기화 로직 수행
         await this.processAction(action);
@@ -121,7 +130,7 @@ export class OfflineQueue {
     this.saveQueue();
   }
 
-  private async processAction(action: any): Promise<void> {
+  private async processAction(action: QueueAction): Promise<void> {
     // 실제 동기화 로직은 여기에 구현
     // 예: API 호출, 데이터베이스 업데이트 등
     console.log('Processing offline action:', action);
