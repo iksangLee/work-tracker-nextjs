@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, memo } from 'react';
 
 interface BlurCardProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface BlurCardProps {
   'aria-label'?: string;
 }
 
-export default function BlurCard({ 
+const BlurCard = memo(function BlurCard({ 
   children, 
   className = '', 
   intensity = 'light',
@@ -26,4 +26,6 @@ export default function BlurCard({
       {children}
     </div>
   );
-}
+});
+
+export default BlurCard;

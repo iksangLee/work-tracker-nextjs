@@ -1,12 +1,12 @@
-import { ReactNode, ButtonHTMLAttributes } from 'react';
+import { ReactNode, ButtonHTMLAttributes, memo } from 'react';
 
 interface GradientButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: 'clockIn' | 'clockOut' | 'save';
+  variant?: 'clockIn' | 'clockOut' | 'save' | 'primary' | 'secondary';
   className?: string;
 }
 
-export default function GradientButton({ 
+const GradientButton = memo(function GradientButton({ 
   children, 
   variant = 'clockIn', 
   className = '', 
@@ -15,7 +15,9 @@ export default function GradientButton({
   const variantClasses = {
     clockIn: 'bg-emerald-400 hover:bg-emerald-500',
     clockOut: 'bg-blue-500 hover:bg-blue-600',
-    save: 'bg-blue-500 hover:bg-blue-600'
+    save: 'bg-blue-500 hover:bg-blue-600',
+    primary: 'bg-blue-500 hover:bg-blue-600',
+    secondary: 'bg-gray-500 hover:bg-gray-600'
   };
 
   return (
@@ -31,4 +33,6 @@ export default function GradientButton({
       {children}
     </button>
   );
-}
+});
+
+export default GradientButton;

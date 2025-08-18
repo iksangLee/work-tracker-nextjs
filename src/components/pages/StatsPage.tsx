@@ -20,10 +20,10 @@ export default function StatsPage() {
   const stats = getWeeklyStats();
   const averageDaily = stats.weeklyHours / 7;
 
-  const getDayName = (dateString: string) => {
-    const date = new Date(dateString);
-    const days = ['일', '월', '화', '수', '목', '금', '토'];
-    return days[date.getDay()];
+  // 월요일부터 시작하는 주간 요일 노출을 위한 함수
+  const getWeekdayName = (weekdayIndex: number) => {
+    const weekdays = ['월', '화', '수', '목', '금', '토', '일']; // 월요일부터 시작
+    return weekdays[weekdayIndex];
   };
 
   const formatDate = (dateString: string) => {
@@ -122,7 +122,7 @@ export default function StatsPage() {
                   <div className="flex justify-between items-center">
                     <div>
                       <div className={`font-semibold text-sm sm:text-base text-shadow-strong ${isToday ? 'text-blue-400' : 'text-white'}`}>
-                        {getDayName(dateString)}
+                        {getWeekdayName(index)}
                       </div>
                       <div className={`text-xs sm:text-sm text-shadow ${isToday ? 'text-blue-300' : 'text-white'}`}>
                         {formatDate(dateString)}
@@ -171,7 +171,7 @@ export default function StatsPage() {
                     style={{ height: `${height}px` }}
                   />
                   <div className="text-xs text-white font-medium text-center text-shadow-strong">
-                    {getDayName(dateString)}
+                    {getWeekdayName(index)}
                   </div>
                 </div>
               );
